@@ -7,7 +7,7 @@ using Xamarin.Forms.Xaml;
 [assembly: ExportFont("OpenSans-Bold.ttf", Alias = "SansRegular")]
 [assembly: ExportFont("OpenSans-Bold.ttf", Alias = "SansRegular")]
 [assembly: ExportFont("materialdesignicons.ttf", Alias = "ma")]
-
+[assembly: ExportFont("FontAwesome.otf", Alias = "fa")]
 
 namespace Xamurai;
 

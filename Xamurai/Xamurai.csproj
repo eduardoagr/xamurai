@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Font\FontAwesome.otf" />
     <None Remove="Font\materialdesignicons.ttf" />
     <None Remove="Font\OpenSans-Bold.ttf" />
     <None Remove="Font\OpenSans-Italic.ttf" />
@@ -18,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Font\FontAwesome.otf" />
     <EmbeddedResource Include="Font\materialdesignicons.ttf" />
     <EmbeddedResource Include="Font\OpenSans-Bold.ttf" />
     <EmbeddedResource Include="Font\OpenSans-Italic.ttf" />

@@ -11,24 +11,35 @@ public partial class CarView : ContentView, INotifyPropertyChanged
     public CarView()
     {
         IsExpanded = true;
-        ToggleCollapseCommand = new Command<ContentView>(ToggleCollapse);
+        ToggleCollapseCommand = new Command<Frame>(ToggleCollapse);
         InitializeComponent();
     }
 
-    private void ToggleCollapse(ContentView cv)
+    private void ToggleCollapse(Frame MyContent)
     {
-        //if (DeviceInfo.Platform == DevicePlatform.Android)
-        //{
-        //BUG iOS pre7+: doesn't collapse the section, only makes the label invisible
+        if (!IsExpanded)
+        {
+            MyContent.LayoutTo(new Rectangle(MyContent.Bounds.X, MyContent.Bounds.Y, MyContent.Bounds.Width, 300), 500, Easing.CubicOut);
+            IsExpanded = true;
+            OnPropertyChanged(nameof(IsExpanded));
+        }
+        else
+        {
+            MyContent.LayoutTo(new Rectangle(MyContent.Bounds.X, MyContent.Bounds.Y, MyContent.Bounds.Width, 0), 500, Easing.CubicIn);
+            IsExpanded = false;
 
-        IsExpanded = !IsExpanded;
-        OnPropertyChanged(nameof(IsExpanded));
-        //}
+            OnPropertyChanged(nameof(IsExpanded));
+        }
     }
 
-    public Command<ContentView> ToggleCollapseCommand
+    public Command<Frame> ToggleCollapseCommand
     {
         get;
+    }
+
+    public int ta
+    {
+        get; set;
     }
 
     public bool IsExpanded

@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:font="clr-namespace:Xamurai.Fonts"
     xmlns:local="clr-namespace:Xamurai"
+    xmlns:model="clr-namespace:Xamurai.Model"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="ListPage"
     Title="List View">
@@ -24,7 +25,7 @@
             ItemsSource="{Binding Cars}"
             SelectionMode="None">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="model:Car">
                     <SwipeView Threshold="200">
                         <SwipeView.RightItems>
                             <SwipeItems Mode="Execute">
@@ -41,34 +42,31 @@
                                 </SwipeItemView>
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <xct:Expander
-                            Margin="30,30,30,0"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="FillAndExpand">
-                            <xct:Expander.Header>
-                                <Grid>
-                                    <local:CarCircleView Margin="5,0,0,0" HorizontalOptions="Start" />
-                                    <Label
-                                        Margin="0,0,10,0"
-                                        FontFamily="ma"
-                                        FontSize="Large"
-                                        HorizontalOptions="EndAndExpand"
-                                        Text="{Static font:MaterialIcons.MenuDown}"
-                                        VerticalOptions="CenterAndExpand" />
-                                </Grid>
-                            </xct:Expander.Header>
-                            <xct:Expander.Content>
-                                <local:CarView
-                                    Padding="0,10,0,0"
-                                    xct:TouchEffect.AnimationEasing="CubicInOut"
-                                    xct:TouchEffect.Command="{Binding Source={x:Reference ListPage}, Path=BindingContext.PressedCommand}"
-                                    xct:TouchEffect.CommandParameter="{Binding .}"
-                                    xct:TouchEffect.LongPressCommand="{Binding Source={x:Reference ListPage}, Path=BindingContext.LongPressedCommand}"
-                                    xct:TouchEffect.LongPressCommandParameter="{Binding .}"
-                                    xct:TouchEffect.NativeAnimation="True"
-                                    xct:TouchEffect.PressedScale="0.8" />
-                            </xct:Expander.Content>
-                        </xct:Expander>
+                        <Grid ColumnDefinitions="300,*">
+                            <BoxView
+                                Grid.Column="1"
+                                Margin="0,30,10,0"
+                                xct:TouchEffect.AnimationEasing="CubicInOut"
+                                xct:TouchEffect.Command="{Binding Source={x:Reference ListPage}, Path=BindingContext.PressedCommand}"
+                                xct:TouchEffect.CommandParameter="{Binding .}"
+                                xct:TouchEffect.LongPressCommand="{Binding Source={x:Reference ListPage}, Path=BindingContext.LongPressedCommand}"
+                                xct:TouchEffect.LongPressCommandParameter="{Binding .}"
+                                xct:TouchEffect.NativeAnimation="True"
+                                xct:TouchEffect.PressedScale="0.8"
+                                BackgroundColor="{Binding Color}"
+                                HeightRequest="40"
+                                VerticalOptions="CenterAndExpand" />
+                            <Label
+                                Grid.Column="1"
+                                FontFamily="fa"
+                                FontSize="Large"
+                                Text="{Static font:IconFont.CircleInfo}"
+                                TextColor="White"
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand" 
+                                Margin="0,30,10,0"/>
+                            <local:CarView Padding="0,10,0,0" />
+                        </Grid>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

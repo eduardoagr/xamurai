@@ -10,7 +10,7 @@
 
     <ContentView.Content>
         <Grid>
-            <Frame
+            <Frame x:Name="MyContent"
                 Margin="5,15,5,5"
                 BorderColor="LightGray"
                 CornerRadius="5"
@@ -42,7 +42,7 @@
                 <local:CarCircleView
                     Margin="7,0,0,0"
                     xct:TouchEffect.Command="{Binding ToggleCollapseCommand, Source={x:Reference _carView}}"
-                    xct:TouchEffect.CommandParameter="{x:Reference _carView}"
+                    xct:TouchEffect.CommandParameter="{x:Reference MyContent}"
                     HeightRequest="30"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
