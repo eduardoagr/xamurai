@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	  <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -10,32 +11,54 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Prism.Core" Version="8.1.97" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.4" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <None Remove="Font\materialdesignicons.ttf" />
+    <None Remove="Font\OpenSans-Bold.ttf" />
+    <None Remove="Font\OpenSans-Italic.ttf" />
+    <None Remove="Font\OpenSans-Regular.ttf" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="CarCircleView.xaml">
+    <EmbeddedResource Include="Font\materialdesignicons.ttf" />
+    <EmbeddedResource Include="Font\OpenSans-Bold.ttf" />
+    <EmbeddedResource Include="Font\OpenSans-Italic.ttf" />
+    <EmbeddedResource Include="Font\OpenSans-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="Syncfusion.Xamarin.Expander" Version="20.2.0.49" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="2.0.5" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2515" />
+    <PackageReference Include="Xamarin.Forms.Visual.Material" Version="5.0.0.2515" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\ListViewDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Experiments\CarouselViewPage.xaml">
+    <EmbeddedResource Update="Views\CarCircleView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="CarView.xaml">
+    <EmbeddedResource Update="Pages\CarouselViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Experiments\CollectionViewPage.xaml">
+    <EmbeddedResource Update="Views\CarView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Experiments\FlexLayoutPage.xaml">
+    <EmbeddedResource Update="Pages\CollectionViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Experiments\ListViewPage.xaml">
+    <EmbeddedResource Update="Pages\FlexLayoutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Dojo\PagedCollectionPage.xaml">
+    <EmbeddedResource Update="Pages\ListViewPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\PagedCollectionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MecedesSpecificView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

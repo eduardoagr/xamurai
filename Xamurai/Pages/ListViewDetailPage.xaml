@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="Xamurai.Pages.ListViewDetailPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{Binding Car.Color}">
+
+    <ContentPage.Content>
+
+        <Frame
+            Padding="0"
+            BorderColor="Black"
+            CornerRadius="10"
+            HeightRequest="300"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="300">
+
+            <Grid ColumnDefinitions="Auto,*">
+                <Frame BorderColor="Black">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="Large"
+                        Text="{Binding Car.Abbreviation}"
+                        VerticalTextAlignment="Center" />
+                </Frame>
+                <StackLayout Grid.Column="1" Margin="5">
+                    <Label HorizontalTextAlignment="Center" Text="{Binding Car.Make }" />
+                    <BoxView BackgroundColor="Gray" HeightRequest="2" />
+                    <Label HorizontalTextAlignment="Center" Text="{Binding Car.Description}" />
+                </StackLayout>
+            </Grid>
+
+        </Frame>
+
+    </ContentPage.Content>
+</ContentPage>

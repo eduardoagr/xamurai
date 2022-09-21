@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamurai.Views.MecedesSpecificView">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Background>
+                <LinearGradientBrush StartPoint="0,0"
+                                     EndPoint="1,0">
+                    <GradientStop Color="#3c1e79"
+                                  Offset="0.1" />
+                    <GradientStop Color="#dc8000"
+                                  Offset="1.0" />
+                </LinearGradientBrush>
+            </StackLayout.Background>
+
+            <Label HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   Text="{Binding Car.Description}"
+                   FontSize="Large"
+                   TextColor="White"
+                   FontFamily="SansBold" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

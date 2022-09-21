@@ -17,14 +17,12 @@
 					<BindableLayout.ItemTemplate>
 						<DataTemplate>
 							<local:CarView>
-								<local:CarView.WidthRequest>
-									<OnIdiom
-										x:TypeArguments="x:Double"
-										Phone="200"
-										Tablet="400" />
-								</local:CarView.WidthRequest>
-
-							</local:CarView>
+                                <local:CarView.WidthRequest>
+                                    <OnIdiom x:TypeArguments="x:Double"
+                                             Phone="200"
+                                             Tablet="400" />
+                                </local:CarView.WidthRequest>
+                            </local:CarView>
 						</DataTemplate>
 					</BindableLayout.ItemTemplate>
 				</FlexLayout>

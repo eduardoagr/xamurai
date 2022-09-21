@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Xamurai.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:data="clr-namespace:Xamurai.Model"
+    xmlns:vm="clr-namespace:Xamurai.ViewModel"
+    x:Name="_mainPage"
+    Title="Xamarin FTW!"
+    x:DataType="vm:MainPageViewModel"
+    Visual="Material">
+
+    <ContentPage.BindingContext>
+        <vm:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <!--
+        If we declare more buttons if the future, this is not very effective.
+        Instead we could declare a Bindeable layout, that takes care of everything
+    -->
+
+    <StackLayout
+        Margin="10"
+        BindableLayout.ItemsSource="{Binding CustomBtons}"
+        Spacing="10">
+        <BindableLayout.ItemTemplate>
+            <DataTemplate x:DataType="data:CustomBton">
+                <Button
+                    Command="{Binding Command}"
+                    Text="{Binding Text}" />
+            </DataTemplate>
+        </BindableLayout.ItemTemplate>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Xamurai.ListViewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:font="clr-namespace:Xamurai.Fonts"
+    xmlns:local="clr-namespace:Xamurai"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Name="ListPage"
+    Title="List View">
+
+    <!--
+        We have two options
+        1) Use syncfusion Listview
+        2) Use a collection
+        
+        NOTE: Since you told me that I could add/remove/upgrade Nuggets.
+        I choose Option 1
+    -->
+
+    <ContentPage.Content>
+        <CollectionView
+            x:Name="CarsList"
+            ItemsSource="{Binding Cars}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <SwipeView Threshold="200">
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Execute">
+                                <SwipeItemView Command="{Binding Source={x:Reference ListPage}, Path=BindingContext.DeleteCommand}" CommandParameter="{Binding .}">
+                                    <StackLayout BackgroundColor="Red">
+                                        <Label
+                                            FontFamily="ma"
+                                            FontSize="40"
+                                            HorizontalOptions="StartAndExpand"
+                                            Text="{Static font:MaterialIcons.TrashCan}"
+                                            TextColor="White"
+                                            VerticalOptions="CenterAndExpand" />
+                                    </StackLayout>
+                                </SwipeItemView>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <xct:Expander
+                            Margin="30,30,30,0"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <xct:Expander.Header>
+                                <Grid>
+                                    <local:CarCircleView Margin="5,0,0,0" HorizontalOptions="Start" />
+                                    <Label
+                                        Margin="0,0,10,0"
+                                        FontFamily="ma"
+                                        FontSize="Large"
+                                        HorizontalOptions="EndAndExpand"
+                                        Text="{Static font:MaterialIcons.MenuDown}"
+                                        VerticalOptions="CenterAndExpand" />
+                                </Grid>
+                            </xct:Expander.Header>
+                            <xct:Expander.Content>
+                                <local:CarView
+                                    Padding="0,10,0,0"
+                                    xct:TouchEffect.AnimationEasing="CubicInOut"
+                                    xct:TouchEffect.Command="{Binding Source={x:Reference ListPage}, Path=BindingContext.PressedCommand}"
+                                    xct:TouchEffect.CommandParameter="{Binding .}"
+                                    xct:TouchEffect.LongPressCommand="{Binding Source={x:Reference ListPage}, Path=BindingContext.LongPressedCommand}"
+                                    xct:TouchEffect.LongPressCommandParameter="{Binding .}"
+                                    xct:TouchEffect.NativeAnimation="True"
+                                    xct:TouchEffect.PressedScale="0.8" />
+                            </xct:Expander.Content>
+                        </xct:Expander>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

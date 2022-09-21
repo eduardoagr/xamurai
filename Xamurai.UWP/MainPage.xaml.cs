@@ -1,6 +1,6 @@
 ﻿namespace Xamurai.UWP
 {
-	public sealed partial class MainPage
+    public sealed partial class MainPage
     {
         public MainPage()
         {

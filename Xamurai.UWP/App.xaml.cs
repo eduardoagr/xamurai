@@ -1,4 +1,5 @@
 ﻿using System;
+
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -7,10 +8,10 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Xamurai.UWP
 {
-	/// <summary>
-	/// Provides application-specific behavior to supplement the default Application class.
-	/// </summary>
-	sealed partial class App : Application
+    /// <summary>
+    /// Provides application-specific behavior to supplement the default Application class.
+    /// </summary>
+    sealed partial class App : Application
     {
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -42,8 +43,8 @@ namespace Xamurai.UWP
 
                 rootFrame.NavigationFailed += OnNavigationFailed;
 
-				Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "CollectionView_Experimental");
-				Xamarin.Forms.Forms.Init(e);
+                Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "CollectionView_Experimental");
+                Xamarin.Forms.Forms.Init(e);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
