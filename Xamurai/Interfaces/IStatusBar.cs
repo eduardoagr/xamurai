@@ -1,8 +1,7 @@
-﻿namespace Xamurai.Interfaces
+﻿namespace Xamurai.Interfaces;
+
+public interface IStatusBar
 {
-    public interface IStatusBar
-    {
-        void HideStatusBar();
-        void ShowStatusBar();
-    }
+    void HideStatusBar();
+    void ShowStatusBar();
 }
