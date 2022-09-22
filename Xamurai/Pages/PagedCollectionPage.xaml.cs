@@ -4,15 +4,14 @@ using Xamarin.Forms.Xaml;
 
 using Xamurai.ViewModel;
 
-namespace Xamurai
+namespace Xamurai;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class PagedCollectionPage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PagedCollectionPage : ContentPage
+    public PagedCollectionPage()
     {
-        public PagedCollectionPage()
-        {
-            BindingContext = new SampleViewModel();
-            InitializeComponent();
-        }
+        BindingContext = new SampleViewModel();
+        InitializeComponent();
     }
 }
